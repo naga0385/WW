@@ -1,10 +1,6 @@
-
-
 import java.util.concurrent.TimeUnit;
 
 import java.util.Calendar;
-
-
 
 import org.openqa.selenium.By;
 
@@ -12,24 +8,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-
-
 import org.openqa.selenium.Keys;
 
-
-
 import java.util.Date;
-
-
 
 public class Webdriver {
 
 	public static void main(String[] args) throws InterruptedException {
 
-		//System.setProperty("webdriver.gecko.driver", "/Users/chukka/Downloads/geckodriver");
+		// System.setProperty("webdriver.gecko.driver",
+		// "/Users/chukka/Downloads/geckodriver");
 
-		System.setProperty("webdriver.chrome.driver","/Users/chukka/Downloads/chromedriver");
-		 WebDriver driver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver", "/Users/chukka/Downloads/chromedriver");
+		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
 
@@ -45,7 +36,7 @@ public class Webdriver {
 
 		String actualTitle3 = "";
 
-		//String currentURL = "";
+		// String currentURL = "";
 
 		// Launch website
 
@@ -73,15 +64,11 @@ public class Webdriver {
 			System.out.println("expected title  :" + expectedTitle);
 			System.out.println("actula title   :" + actualTitle);
 
-			
-
 			System.out.println("Test Passed! Title Validated");
 
 		} else {
 			System.out.println("expected title  :" + expectedTitle);
 			System.out.println("actula title  :" + actualTitle);
-
-			
 
 			System.out.println("Test Failed");
 
@@ -95,7 +82,7 @@ public class Webdriver {
 
 		System.out.println("----------------------------");
 
-		//currentURL = driver.getCurrentUrl();
+		// currentURL = driver.getCurrentUrl();
 
 		// System.out.println(currentURL);
 
@@ -131,7 +118,7 @@ public class Webdriver {
 		/// html/body/div[2]/div/div[2]/div/div/ui-view/ui-view/div[1]/div/div/div[1]/div[2]/div[2]/div/location-address/div/div/div[1]/div/span
 
 		meetingsearch.sendKeys(Keys.RETURN);
-		
+
 		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
 
 		String text2 = driver.findElement(By.xpath(
@@ -153,7 +140,7 @@ public class Webdriver {
 				By.xpath(
 						"/html/body/div[2]/div/div[2]/div/div/ui-view/ui-view/div/div[2]/div/div[1]/div/div[1]/result-location/div/div[1]/a/location-address/div/div/div[1]/div[1]"))
 				.click();
-		
+
 		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
 
 		String text3 = driver.findElement(By.xpath(
