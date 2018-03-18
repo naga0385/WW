@@ -26,9 +26,9 @@ public class Webdriver {
 
 	public static void main(String[] args) throws InterruptedException {
 
-		//System.setProperty("webdriver.gecko.driver", "/Users/Sowmya/Downloads/geckodriver");
+		//System.setProperty("webdriver.gecko.driver", "/Users/chukka/Downloads/geckodriver");
 
-		System.setProperty("webdriver.chrome.driver","/Users/Sowmya/Downloads/chromedriver");
+		System.setProperty("webdriver.chrome.driver","/Users/chukka/Downloads/chromedriver");
 		 WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
