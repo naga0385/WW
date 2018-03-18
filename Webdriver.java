@@ -6,37 +6,32 @@ import java.util.Calendar;
 
 
 
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.By;
 
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+
+import org.openqa.selenium.Keys;
+
+
 
 import java.util.Date;
 
-import org.openqa.selenium.*;
 
-import org.openqa.selenium.firefox.FirefoxDriver;
-
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class Webdriver {
 
 	public static void main(String[] args) throws InterruptedException {
 
-		System.setProperty("webdriver.gecko.driver", "/Users/chukka/Downloads/geckodriver");
+		//System.setProperty("webdriver.gecko.driver", "/Users/chukka/Downloads/geckodriver");
 
-		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-
-		capabilities.setCapability("marionette", true);
-
-		// WebDriver driver = new FirefoxDriver(capabilities);
-
-		WebDriver driver = new FirefoxDriver();
-
-		// Puts an Implicit wait, Will wait for 10 seconds before throwing exception
-
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		System.setProperty("webdriver.chrome.driver","/Users/chukka/Downloads/chromedriver");
+		 WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
 
 		String baseUrl = "http://www.weightwatchers.com/us/";
 
@@ -72,21 +67,21 @@ public class Webdriver {
 		 * 
 		 */
 
-		System.out.println("ValidteTitle  :" + expectedTitle);
+		System.out.println("Validte Title  :" + expectedTitle);
 
 		if (actualTitle.contentEquals(expectedTitle)) {
+			System.out.println("expected title  :" + expectedTitle);
+			System.out.println("actula title   :" + actualTitle);
 
-			System.out.println("actulatitle   :" + actualTitle);
-
-			System.out.println("expectedtitle  :" + expectedTitle);
+			
 
 			System.out.println("Test Passed! Title Validated");
 
 		} else {
+			System.out.println("expected title  :" + expectedTitle);
+			System.out.println("actula title  :" + actualTitle);
 
-			System.out.println("actulatitle  :" + actualTitle);
-
-			System.out.println("expectedtitle  :" + expectedTitle);
+			
 
 			System.out.println("Test Failed");
 
@@ -96,7 +91,7 @@ public class Webdriver {
 
 				By.xpath("//*[@id=\"ela-menu-visitor-desktop-supplementa_find-a-meeting\"]")).click();
 
-		Thread.sleep(10);
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
 
 		System.out.println("----------------------------");
 
@@ -106,11 +101,11 @@ public class Webdriver {
 
 		actualTitle3 = driver.getTitle();
 
-		System.out.println("ValidteTitle  :" + expectedTitle2);
+		System.out.println("ValidteTitle  on Find a meeting page :" + expectedTitle2);
 
 		if (actualTitle3.contains(expectedTitle2)) {
 
-			System.out.println(" Test Passed! Title on Find a meeting contains : " + expectedTitle2);
+			System.out.println(" Test Passed! Title on Find a meeting page contains : " + expectedTitle2);
 
 		} else {
 
@@ -136,6 +131,8 @@ public class Webdriver {
 		/// html/body/div[2]/div/div[2]/div/div/ui-view/ui-view/div[1]/div/div/div[1]/div[2]/div[2]/div/location-address/div/div/div[1]/div/span
 
 		meetingsearch.sendKeys(Keys.RETURN);
+		
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
 
 		String text2 = driver.findElement(By.xpath(
 				"/html/body/div[2]/div/div[2]/div/div/ui-view/ui-view/div/div[2]/div/div[1]/div/div[1]/result-location/div/div[1]/a/location-address/div/div/div[1]/div[1]"))
@@ -156,6 +153,8 @@ public class Webdriver {
 				By.xpath(
 						"/html/body/div[2]/div/div[2]/div/div/ui-view/ui-view/div/div[2]/div/div[1]/div/div[1]/result-location/div/div[1]/a/location-address/div/div/div[1]/div[1]"))
 				.click();
+		
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
 
 		String text3 = driver.findElement(By.xpath(
 				"html/body/div[2]/div/div[2]/div/div/ui-view/ui-view/div[1]/div/div/div[1]/div[2]/div[2]/div/location-address/div/div/div[1]/div/span\n"
@@ -209,7 +208,7 @@ public class Webdriver {
 
 		System.out.println("Hours of operation :");
 
-		switch (7) {
+		switch (calendar.get(Calendar.DAY_OF_WEEK)) {
 
 		case 1:
 
