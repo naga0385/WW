@@ -374,7 +374,7 @@ public class Webdriver {
 
 		// Close the Browser.
 
-		//driver.close();
+		driver.close();
 
 	}
 
