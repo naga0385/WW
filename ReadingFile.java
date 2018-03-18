@@ -8,7 +8,7 @@ public class ReadingFile {
 
 	public static void main(String[] args) {
 		String strLine = "";
-		String filePath = "/Users/Sowmya/Desktop/Java/library/Dictionary";
+		String filePath = "/Users/chukka/Desktop/Java/library/Dictionary";
 		FileInputStream fstream = null;
 		BufferedReader br = null;
 
